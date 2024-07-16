@@ -8,7 +8,7 @@ Route::resource('admin/books', BookController::class)->middleware('auth');
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
 });
 Route::get('/login', function () {
     return view('login');
