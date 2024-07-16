@@ -2,17 +2,16 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\BookController;
 
 Route::resource('admin/books', BookController::class)->middleware('auth');
 
-=======
-use App\Http\Controllers\Auth\LoginController;
->>>>>>> fcefb3f11aace070b0e0254843bc589d9982b496
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+Route::get('/login', function () {
+    return view('login');
 });
 
 Route::get('/dashboard', function () {
