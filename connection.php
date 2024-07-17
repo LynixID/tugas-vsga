@@ -1,6 +1,14 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_perpustakaan');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_perpustakaan";
 
-if (!$conn) {
-    die('Gagal Terhubung: ' . mysqli_connect_error());
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+?>
