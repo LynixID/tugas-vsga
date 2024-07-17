@@ -1,3 +1,8 @@
+<?php
+session_start();
+$is_logged_in = isset($_SESSION['username']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,9 +72,15 @@
                         </form>
                     </div>
 
-                    <a href="login.php" title="" class="hidden lg:block items-center justify-center px-5 py-2.5 text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full" role="button">
-                        Masuk
-                    </a>
+                    <?php if ($is_logged_in): ?>
+                        <a href="logout.php" title="" class="hidden lg:block items-center justify-center px-5 py-2.5 text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full" role="button">
+                            Logout
+                        </a>
+                    <?php else: ?>
+                        <a href="login.php" title="" class="hidden lg:block items-center justify-center px-5 py-2.5 text-base transition-all duration-200 hover:bg-yellow-300 hover:text-black focus:text-black focus:bg-yellow-300 font-semibold text-white bg-black rounded-full" role="button">
+                            Masuk
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </header>
@@ -200,28 +211,8 @@
     <!-- Ebook list -->
     <section class="w-full px-14 lg:px-24 py-10 flex flex-col flex-wrap">
         <h1 class="text-5xl font-bold py-10">Daftar E-Book</h1>
-        <div class="w-full flex gap-4 flex-wrap  ">
-            <?php
-            // Menggunakan file connection.php
-            include 'connection.php';
-
-            // Membaca data dari database
-            $sql = "SELECT * FROM buku";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo ' <div class="w-[240px] h-[320px] border flex flex-col rounded-md overflow-hidden hover:scale-[1.03] cursor-pointer duration-200">';
-                    echo '<img src="asset/img/' . htmlspecialchars($row['gambar']) . '" alt="" class="w-full h-[250px] object-cover mb-4">';
-                    echo '<h1 class="text-lg font-bold pl-3">' . htmlspecialchars($row['judul']) . '</h1>';
-                    echo '<h2 class="text-sm pl-3">' . htmlspecialchars($row['penulis']) . '</h2>';
-                    echo '</div>';
-                }
-
-                mysqli_close($conn);
-            }
-            ?>
-
+        <div class="w-full flex justify-between flex-wrap ">
+            <div class="w-[240px] h-[320px] bg-black"></div>
         </div>
     </section>
 
