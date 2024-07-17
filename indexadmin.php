@@ -126,7 +126,7 @@
         <nav>
             <ul>
                 <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Manage Buku</a></li>
+                <li><a href="manage_books.php">Manage Buku</a></li>
             </ul>
         </nav>
     </div>
