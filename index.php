@@ -216,10 +216,6 @@ $is_logged_in = isset($_SESSION['username']);
         </div>
     </section>
 
-    <!-- Ebook list end -->
-
-
-
 
     <!-- ScrollAnim -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -227,5 +223,4 @@ $is_logged_in = isset($_SESSION['username']);
         AOS.init();
     </script>
 </body>
-
 </html>
