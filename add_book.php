@@ -15,7 +15,7 @@ $image_name = '';
 if (isset($_FILES['gambar']) && $_FILES['gambar']['error'] == 0) {
     $image_name = time() . '_' . $_FILES['gambar']['name'];
     $image_tmp = $_FILES['gambar']['tmp_name'];
-    $upload_dir = '../../asset/img';
+    $upload_dir = 'asset/img/';
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);
     }
@@ -39,4 +39,3 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
-?>
