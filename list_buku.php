@@ -22,10 +22,8 @@
     </nav>
     <div class="container">
         <?php
-        // Menggunakan file connection.php
         include 'connection.php';
 
-        // Membaca data dari database
         $sql = "SELECT * FROM buku";
         $result = mysqli_query($conn, $sql);
 
@@ -51,11 +49,11 @@
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
-                        body: 'buku_id=' + bookId
+                        body: 'buku_id=' + encodeURIComponent(bookId)
                     })
                     .then(response => response.text())
                     .then(data => {
-                        alert('Book added to loan list');
+                        alert(data);
                     });
             });
         });
